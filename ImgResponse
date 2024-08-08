@@ -1,0 +1,36 @@
+package com.demo.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ImgResponse {
+    Output output;
+    Usage usage;
+    String request_id;
+
+    @Data
+    public static class Output {
+        Choice[] choices;
+    }
+
+    @Data
+    public static class Choice {
+        Message message;
+    }
+
+    @Data
+    public static class Message {
+        String role;
+        String content;
+    }
+
+    @Data
+    public static class Usage {
+        String output_tokens;
+        String input_tokens;
+    }
+}
