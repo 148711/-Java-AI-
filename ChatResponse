@@ -1,0 +1,248 @@
+package com.demo.pojo;
+
+public class ChatResponse {
+   private Output output;
+   private Usage usage;
+   private String request_id;
+
+   public Output getOutput() {
+      return this.output;
+   }
+
+   public Usage getUsage() {
+      return this.usage;
+   }
+
+   public String getRequest_id() {
+      return this.request_id;
+   }
+
+   public void setOutput(final Output output) {
+      this.output = output;
+   }
+
+   public void setUsage(final Usage usage) {
+      this.usage = usage;
+   }
+
+   public void setRequest_id(final String request_id) {
+      this.request_id = request_id;
+   }
+
+   public boolean equals(final Object o) {
+      if (o == this) {
+         return true;
+      } else if (!(o instanceof ChatResponse)) {
+         return false;
+      } else {
+         ChatResponse other = (ChatResponse)o;
+         if (!other.canEqual(this)) {
+            return false;
+         } else {
+            label47: {
+               Object this$output = this.getOutput();
+               Object other$output = other.getOutput();
+               if (this$output == null) {
+                  if (other$output == null) {
+                     break label47;
+                  }
+               } else if (this$output.equals(other$output)) {
+                  break label47;
+               }
+
+               return false;
+            }
+
+            Object this$usage = this.getUsage();
+            Object other$usage = other.getUsage();
+            if (this$usage == null) {
+               if (other$usage != null) {
+                  return false;
+               }
+            } else if (!this$usage.equals(other$usage)) {
+               return false;
+            }
+
+            Object this$request_id = this.getRequest_id();
+            Object other$request_id = other.getRequest_id();
+            if (this$request_id == null) {
+               if (other$request_id != null) {
+                  return false;
+               }
+            } else if (!this$request_id.equals(other$request_id)) {
+               return false;
+            }
+
+            return true;
+         }
+      }
+   }
+
+   protected boolean canEqual(final Object other) {
+      return other instanceof ChatResponse;
+   }
+
+   public int hashCode() {
+      int result = 1;
+      Object $output = this.getOutput();
+      result = result * 59 + ($output == null ? 43 : $output.hashCode());
+      Object $usage = this.getUsage();
+      result = result * 59 + ($usage == null ? 43 : $usage.hashCode());
+      Object $request_id = this.getRequest_id();
+      result = result * 59 + ($request_id == null ? 43 : $request_id.hashCode());
+      return result;
+   }
+
+   public String toString() {
+      Output var10000 = this.getOutput();
+      return "ChatResponse(output=" + var10000 + ", usage=" + this.getUsage() + ", request_id=" + this.getRequest_id() + ")";
+   }
+
+   public static class Usage {
+      public String output_tokens;
+      public String input_tokens;
+
+      public String getOutput_tokens() {
+         return this.output_tokens;
+      }
+
+      public String getInput_tokens() {
+         return this.input_tokens;
+      }
+
+      public void setOutput_tokens(final String output_tokens) {
+         this.output_tokens = output_tokens;
+      }
+
+      public void setInput_tokens(final String input_tokens) {
+         this.input_tokens = input_tokens;
+      }
+
+      public boolean equals(final Object o) {
+         if (o == this) {
+            return true;
+         } else if (!(o instanceof Usage)) {
+            return false;
+         } else {
+            Usage other = (Usage)o;
+            if (!other.canEqual(this)) {
+               return false;
+            } else {
+               Object this$output_tokens = this.getOutput_tokens();
+               Object other$output_tokens = other.getOutput_tokens();
+               if (this$output_tokens == null) {
+                  if (other$output_tokens != null) {
+                     return false;
+                  }
+               } else if (!this$output_tokens.equals(other$output_tokens)) {
+                  return false;
+               }
+
+               Object this$input_tokens = this.getInput_tokens();
+               Object other$input_tokens = other.getInput_tokens();
+               if (this$input_tokens == null) {
+                  if (other$input_tokens != null) {
+                     return false;
+                  }
+               } else if (!this$input_tokens.equals(other$input_tokens)) {
+                  return false;
+               }
+
+               return true;
+            }
+         }
+      }
+
+      protected boolean canEqual(final Object other) {
+         return other instanceof Usage;
+      }
+
+      public int hashCode() {
+         int result = 1;
+         Object $output_tokens = this.getOutput_tokens();
+         result = result * 59 + ($output_tokens == null ? 43 : $output_tokens.hashCode());
+         Object $input_tokens = this.getInput_tokens();
+         result = result * 59 + ($input_tokens == null ? 43 : $input_tokens.hashCode());
+         return result;
+      }
+
+      public String toString() {
+         String var10000 = this.getOutput_tokens();
+         return "ChatResponse.Usage(output_tokens=" + var10000 + ", input_tokens=" + this.getInput_tokens() + ")";
+      }
+   }
+
+   public static class Output {
+      public String text;
+      public String finish_reason;
+
+      public String getText() {
+         return this.text;
+      }
+
+      public String getFinish_reason() {
+         return this.finish_reason;
+      }
+
+      public void setText(final String text) {
+         this.text = text;
+      }
+
+      public void setFinish_reason(final String finish_reason) {
+         this.finish_reason = finish_reason;
+      }
+
+      public boolean equals(final Object o) {
+         if (o == this) {
+            return true;
+         } else if (!(o instanceof Output)) {
+            return false;
+         } else {
+            Output other = (Output)o;
+            if (!other.canEqual(this)) {
+               return false;
+            } else {
+               Object this$text = this.getText();
+               Object other$text = other.getText();
+               if (this$text == null) {
+                  if (other$text != null) {
+                     return false;
+                  }
+               } else if (!this$text.equals(other$text)) {
+                  return false;
+               }
+
+               Object this$finish_reason = this.getFinish_reason();
+               Object other$finish_reason = other.getFinish_reason();
+               if (this$finish_reason == null) {
+                  if (other$finish_reason != null) {
+                     return false;
+                  }
+               } else if (!this$finish_reason.equals(other$finish_reason)) {
+                  return false;
+               }
+
+               return true;
+            }
+         }
+      }
+
+      protected boolean canEqual(final Object other) {
+         return other instanceof Output;
+      }
+
+      public int hashCode() {
+         int result = 1;
+         Object $text = this.getText();
+         result = result * 59 + ($text == null ? 43 : $text.hashCode());
+         Object $finish_reason = this.getFinish_reason();
+         result = result * 59 + ($finish_reason == null ? 43 : $finish_reason.hashCode());
+         return result;
+      }
+
+      public String toString() {
+         String var10000 = this.getText();
+         return "ChatResponse.Output(text=" + var10000 + ", finish_reason=" + this.getFinish_reason() + ")";
+      }
+   }
+}
