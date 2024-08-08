@@ -1,1 +1,56 @@
 
+package com.demo.controller;
+
+import cn.hutool.http.HttpRequest;
+import cn.hutool.json.JSONUtil;
+import com.demo.pojo.ChatRequest;
+import com.demo.pojo.ChatResponse;
+import com.demo.pojo.ImgRequest;
+import com.demo.pojo.ImgResponse;
+import com.demo.util.ApiResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
+import java.util.Map;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@Api(
+   value = "",
+   tags = {"Ai接口"}
+)
+@RestController
+public class ChatController {
+   @ApiOperation("单文本接口")
+   @PostMapping({"/chatWord"})
+   public ApiResponse chat(@RequestBody Map<String, String> requestData) {
+      String url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
+      String apiKey = "填入申请的API";
+      String input = (String)requestData.get("input");
+      ChatRequest chatRequest = new ChatRequest(input);
+      String json = JSONUtil.toJsonStr(chatRequest);
+      String result = ((HttpRequest)((HttpRequest)HttpRequest.post(url).header("Authorization", "Bearer " + apiKey)).header("Content-Type", "application/json")).body(json).execute().body();
+      ChatResponse chatResponse = (ChatResponse)JSONUtil.toBean(result, ChatResponse.class);
+      Map<String, Object> responseData = new HashMap();
+      responseData.put("chatResponse", chatResponse);
+      return new ApiResponse(200, "ok", responseData);
+   }
+
+   @ApiOperation("带图接口(url)")
+   @PostMapping({"/chatImage"})
+   public ApiResponse imgChat(@RequestBody Map<String, String> requestData) {
+      String url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation";
+      String apiKey = "填入申请的API";
+      String image = (String)requestData.get("image");
+      String text = (String)requestData.get("text");
+      ImgRequest imgRequest = new ImgRequest(image, text);
+      String json = JSONUtil.toJsonStr(imgRequest);
+      String result = ((HttpRequest)((HttpRequest)HttpRequest.post(url).header("Authorization", "Bearer " + apiKey)).header("Content-Type", "application/json")).body(json).execute().body();
+      ImgResponse imgResponse = (ImgResponse)JSONUtil.toBean(result, ImgResponse.class);
+      Map<String, Object> responseData = new HashMap();
+      String content = imgResponse.getOutput().getChoices()[0].getMessage().getContent();
+      responseData.put("content", content);
+      return new ApiResponse(200, "ok", responseData);
+   }
+}
