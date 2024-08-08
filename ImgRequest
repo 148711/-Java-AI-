@@ -1,0 +1,317 @@
+package com.demo.pojo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ImgRequest {
+   String model = "qwen-vl-plus";
+   Input input;
+
+   public ImgRequest(String imageUrl, String questionText) {
+      this.input = new Input(imageUrl, questionText);
+   }
+
+   public String getModel() {
+      return this.model;
+   }
+
+   public Input getInput() {
+      return this.input;
+   }
+
+   public void setModel(final String model) {
+      this.model = model;
+   }
+
+   public void setInput(final Input input) {
+      this.input = input;
+   }
+
+   public boolean equals(final Object o) {
+      if (o == this) {
+         return true;
+      } else if (!(o instanceof ImgRequest)) {
+         return false;
+      } else {
+         ImgRequest other = (ImgRequest)o;
+         if (!other.canEqual(this)) {
+            return false;
+         } else {
+            Object this$model = this.getModel();
+            Object other$model = other.getModel();
+            if (this$model == null) {
+               if (other$model != null) {
+                  return false;
+               }
+            } else if (!this$model.equals(other$model)) {
+               return false;
+            }
+
+            Object this$input = this.getInput();
+            Object other$input = other.getInput();
+            if (this$input == null) {
+               if (other$input != null) {
+                  return false;
+               }
+            } else if (!this$input.equals(other$input)) {
+               return false;
+            }
+
+            return true;
+         }
+      }
+   }
+
+   protected boolean canEqual(final Object other) {
+      return other instanceof ImgRequest;
+   }
+
+   public int hashCode() {
+      int result = 1;
+      Object $model = this.getModel();
+      result = result * 59 + ($model == null ? 43 : $model.hashCode());
+      Object $input = this.getInput();
+      result = result * 59 + ($input == null ? 43 : $input.hashCode());
+      return result;
+   }
+
+   public String toString() {
+      String var10000 = this.getModel();
+      return "ImgRequest(model=" + var10000 + ", input=" + this.getInput() + ")";
+   }
+
+   public ImgRequest(final String model, final Input input) {
+      this.model = model;
+      this.input = input;
+   }
+
+   public ImgRequest() {
+   }
+
+   static class Content {
+      String text;
+      String image;
+
+      Content(String text) {
+         this.text = text;
+      }
+
+      Content(String image, String unused) {
+         this.image = image;
+      }
+
+      public String getText() {
+         return this.text;
+      }
+
+      public String getImage() {
+         return this.image;
+      }
+
+      public void setText(final String text) {
+         this.text = text;
+      }
+
+      public void setImage(final String image) {
+         this.image = image;
+      }
+
+      public boolean equals(final Object o) {
+         if (o == this) {
+            return true;
+         } else if (!(o instanceof Content)) {
+            return false;
+         } else {
+            Content other = (Content)o;
+            if (!other.canEqual(this)) {
+               return false;
+            } else {
+               Object this$text = this.getText();
+               Object other$text = other.getText();
+               if (this$text == null) {
+                  if (other$text != null) {
+                     return false;
+                  }
+               } else if (!this$text.equals(other$text)) {
+                  return false;
+               }
+
+               Object this$image = this.getImage();
+               Object other$image = other.getImage();
+               if (this$image == null) {
+                  if (other$image != null) {
+                     return false;
+                  }
+               } else if (!this$image.equals(other$image)) {
+                  return false;
+               }
+
+               return true;
+            }
+         }
+      }
+
+      protected boolean canEqual(final Object other) {
+         return other instanceof Content;
+      }
+
+      public int hashCode() {
+         int result = 1;
+         Object $text = this.getText();
+         result = result * 59 + ($text == null ? 43 : $text.hashCode());
+         Object $image = this.getImage();
+         result = result * 59 + ($image == null ? 43 : $image.hashCode());
+         return result;
+      }
+
+      public String toString() {
+         String var10000 = this.getText();
+         return "ImgRequest.Content(text=" + var10000 + ", image=" + this.getImage() + ")";
+      }
+   }
+
+   static class Message {
+      String role;
+      List<Content> content;
+
+      public Message() {
+      }
+
+      public String getRole() {
+         return this.role;
+      }
+
+      public List<Content> getContent() {
+         return this.content;
+      }
+
+      public void setRole(final String role) {
+         this.role = role;
+      }
+
+      public void setContent(final List<Content> content) {
+         this.content = content;
+      }
+
+      public boolean equals(final Object o) {
+         if (o == this) {
+            return true;
+         } else if (!(o instanceof Message)) {
+            return false;
+         } else {
+            Message other = (Message)o;
+            if (!other.canEqual(this)) {
+               return false;
+            } else {
+               Object this$role = this.getRole();
+               Object other$role = other.getRole();
+               if (this$role == null) {
+                  if (other$role != null) {
+                     return false;
+                  }
+               } else if (!this$role.equals(other$role)) {
+                  return false;
+               }
+
+               Object this$content = this.getContent();
+               Object other$content = other.getContent();
+               if (this$content == null) {
+                  if (other$content != null) {
+                     return false;
+                  }
+               } else if (!this$content.equals(other$content)) {
+                  return false;
+               }
+
+               return true;
+            }
+         }
+      }
+
+      protected boolean canEqual(final Object other) {
+         return other instanceof Message;
+      }
+
+      public int hashCode() {
+         int result = 1;
+         Object $role = this.getRole();
+         result = result * 59 + ($role == null ? 43 : $role.hashCode());
+         Object $content = this.getContent();
+         result = result * 59 + ($content == null ? 43 : $content.hashCode());
+         return result;
+      }
+
+      public String toString() {
+         String var10000 = this.getRole();
+         return "ImgRequest.Message(role=" + var10000 + ", content=" + this.getContent() + ")";
+      }
+   }
+
+   static class Input {
+      List<Message> messages = new ArrayList();
+
+      Input(String imageUrl, String questionText) {
+         Message systemMessage = new Message();
+         systemMessage.setRole("system");
+         List<Content> systemContent = new ArrayList();
+         systemContent.add(new Content(""));
+         systemMessage.setContent(systemContent);
+         Message userMessage = new Message();
+         userMessage.setRole("user");
+         List<Content> userContent = new ArrayList();
+         userContent.add(new Content(questionText));
+         userContent.add(new Content(imageUrl, ""));
+         userMessage.setContent(userContent);
+         this.messages.add(systemMessage);
+         this.messages.add(userMessage);
+      }
+
+      public List<Message> getMessages() {
+         return this.messages;
+      }
+
+      public void setMessages(final List<Message> messages) {
+         this.messages = messages;
+      }
+
+      public boolean equals(final Object o) {
+         if (o == this) {
+            return true;
+         } else if (!(o instanceof Input)) {
+            return false;
+         } else {
+            Input other = (Input)o;
+            if (!other.canEqual(this)) {
+               return false;
+            } else {
+               Object this$messages = this.getMessages();
+               Object other$messages = other.getMessages();
+               if (this$messages == null) {
+                  if (other$messages != null) {
+                     return false;
+                  }
+               } else if (!this$messages.equals(other$messages)) {
+                  return false;
+               }
+
+               return true;
+            }
+         }
+      }
+
+      protected boolean canEqual(final Object other) {
+         return other instanceof Input;
+      }
+
+      public int hashCode() {
+         int result = 1;
+         Object $messages = this.getMessages();
+         result = result * 59 + ($messages == null ? 43 : $messages.hashCode());
+         return result;
+      }
+
+      public String toString() {
+         return "ImgRequest.Input(messages=" + this.getMessages() + ")";
+      }
+   }
+}
